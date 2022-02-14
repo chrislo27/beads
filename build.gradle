@@ -2,8 +2,7 @@
 
 buildscript {
     repositories {
-        jcenter()
-        
+        gradlePluginPortal()
     }
     dependencies {
         classpath 'com.github.jengelman.gradle.plugins:shadow:6.0.0'
@@ -74,7 +73,7 @@ artifacts {
 }
 
 signing {
-    sign configurations.archives
+//    sign configurations.archives
 }
 
 // Import ShadowJar plugin and create custom shadowJar task
@@ -176,13 +175,13 @@ uploadArchives {
     mavenDeployer {
       beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
-
-      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
+//      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+//        authentication(userName: ossrhUsername, password: ossrhPassword)
+//      }
+//
+//      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+//        authentication(userName: ossrhUsername, password: ossrhPassword)
+//      }
 
       pom.project {
         name 'Beads'
